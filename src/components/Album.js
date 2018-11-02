@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Album = () => (
+const Library = () => (
     <section className="album">
         Albums will go here
     </section>
 );
 
-export default Albums;
+export default Album;
