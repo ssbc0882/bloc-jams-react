@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Library = () => (
+const Album = () => (
     <section className="album">
         Albums will go here
     </section>
