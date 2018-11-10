@@ -12,7 +12,8 @@ class Album extends Component {
         this.state = {
             album: album,
             currentSong: album.songs[0],
-            isPlaying: false
+            isPlaying: false,
+            isHovered: false
         };
 
         this.audioElement = document.createElement('audio');
@@ -44,6 +45,27 @@ class Album extends Component {
         }
     }
 
+    onMouseEnter(index) {
+        this.setState({ isHovered: index });
+    }
+
+    onMouseLeave(index) {
+        this.setState({ isHovered: false });
+    }
+
+    showIcons(song, index) {
+        if (this.state.isHovered === song) {
+            return < span className="icon ion-ios-play" ></span >
+        } else if (this.state.currentSong === song && this.state.isPlaying) {
+            return < span className="icon ion-ios-pause" ></span >
+        } else if (this.state.currentSong === song && !this.state.isPlaying) {
+            return < span className="icon ion-ios-play" ></span >
+        } else {
+            return index + 1;
+        }
+    }
+
+
     render() {
         return (
             <section className="album">
@@ -62,22 +84,15 @@ class Album extends Component {
                         <col id="song-duration-column" />
                     </colgroup>
                     <tbody>
-                        <thead>
-                            <tr>
-                                <th>Title</th>
-                                <th>Duration</th>
+                        {this.state.album.songs.map((song, index) =>
+                            <tr className="song" key={index} onClick={() => this.handleSongClick(song)} onMouseEnter={() => this.onMouseEnter(index)} onMouseLeave={() => this.onMouseLeave(index)} >
+                                <td>{this.showIcons(song, index)}</td>
+                                <td>{song.title}</td>
+                                <td>{song.duration}</td>
                             </tr>
-                        </thead>
-                        <ol>
-                            {this.state.album.songs.map((song, index) =>
-                                <tr className="song" key={index} onClick={() => this.handleSongClick(song)} >
-                                    <td>{index + 1}</td>
-                                    <td>{song.title}</td>
-                                    <td>{song.duration}</td>
-                                </tr>
 
-                            )}
-                        </ol>
+                        )}
+
                     </tbody>
                 </table>
             </section>
