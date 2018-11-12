@@ -14,6 +14,7 @@ class Album extends Component {
             album: album,
             currentSong: album.songs[0],
             currentTime: 0,
+            currentVolume: 1.0,
             duration: album.songs[0].duration,
             isPlaying: false,
             isHovered: false
@@ -89,6 +90,12 @@ class Album extends Component {
         this.setState({ currentTime: newTime });
     }
 
+    handleVolumeChange(e) {
+        const newVolume = e.target.value;
+        this.audioElement.volume = newVolume;
+        this.setState({ currentVolume: newVolume })
+    }
+
 
     onMouseEnter(index) {
         this.setState({ isHovered: index + 1 });
@@ -148,7 +155,7 @@ class Album extends Component {
                     </tbody>
                 </table>
                 <PlayerBar isPlaying={this.state.isPlaying} currentSong={this.state.currentSong} currentTime={this.audioElement.currentTime}
-                    duration={this.audioElement.duration} handleSongClick={() => this.handleSongClick(this.state.currentSong)} handlePrevClick={() => this.handlePrevClick()} handleNextClick={() => this.handleNextClick()} handleTimeChange={(e) => this.handleTimeChange(e)} formatTime={(e) => this.formatTime(e)} />
+                    duration={this.audioElement.duration} handleSongClick={() => this.handleSongClick(this.state.currentSong)} handlePrevClick={() => this.handlePrevClick()} handleNextClick={() => this.handleNextClick()} handleTimeChange={(e) => this.handleTimeChange(e)} formatTime={(e) => this.formatTime(e)} handleVolumeChange={(e) => this.handleVolumeChange(e)} />
             </section>
         );
     }
