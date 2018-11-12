@@ -110,6 +110,13 @@ class Album extends Component {
         }
     }
 
+    formatTime(seconds) {
+        const s = Math.floor(seconds % 60);
+        const m = Math.floor(seconds / 60);
+        const songDuration = m + ":" + s;
+        return songDuration;
+    }
+
 
     render() {
         return (
@@ -133,7 +140,7 @@ class Album extends Component {
                             <tr className="song" key={index} onClick={() => this.handleSongClick(song)} onMouseEnter={() => this.onMouseEnter(index + 1)} onMouseLeave={() => this.onMouseLeave(index + 1)} >
                                 <td>{this.showIcons(song, index)}</td>
                                 <td>{song.title}</td>
-                                <td>{song.duration}</td>
+                                <td>{this.formatTime(song.duration)}</td>
                             </tr>
 
                         )}
@@ -141,7 +148,7 @@ class Album extends Component {
                     </tbody>
                 </table>
                 <PlayerBar isPlaying={this.state.isPlaying} currentSong={this.state.currentSong} currentTime={this.audioElement.currentTime}
-                    duration={this.audioElement.duration} handleSongClick={() => this.handleSongClick(this.state.currentSong)} handlePrevClick={() => this.handlePrevClick()} handleNextClick={() => this.handleNextClick()} handleTimeChange={(e) => this.handleTimeChange(e)} />
+                    duration={this.audioElement.duration} handleSongClick={() => this.handleSongClick(this.state.currentSong)} handlePrevClick={() => this.handlePrevClick()} handleNextClick={() => this.handleNextClick()} handleTimeChange={(e) => this.handleTimeChange(e)} formatTime={(e) => this.formatTime(e)} />
             </section>
         );
     }
