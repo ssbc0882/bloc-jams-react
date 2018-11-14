@@ -107,11 +107,11 @@ class Album extends Component {
 
     showIcons(song, index) {
         if (this.state.isHovered === index) {
-            return < span className="icon ion-ios-play" ></span >
+            return < span className="ion-play" ></span >
         } else if (this.state.currentSong === song && this.state.isPlaying) {
-            return < span className="icon ion-ios-pause" ></span >
+            return < span className="ion-pause" ></span >
         } else if (this.state.currentSong === song && !this.state.isPlaying) {
-            return < span className="icon ion-ios-play" ></span >
+            return < span className="ion-play" ></span >
         } else {
             return index + 1;
         }
