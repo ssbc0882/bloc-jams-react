@@ -98,7 +98,7 @@ class Album extends Component {
 
 
     onMouseEnter(index) {
-        this.setState({ isHovered: index + 1 });
+        this.setState({ isHovered: index });
     }
 
     onMouseLeave(index) {
@@ -106,7 +106,7 @@ class Album extends Component {
     }
 
     showIcons(song, index) {
-        if (this.state.isHovered === song) {
+        if (this.state.isHovered === index) {
             return < span className="icon ion-ios-play" ></span >
         } else if (this.state.currentSong === song && this.state.isPlaying) {
             return < span className="icon ion-ios-pause" ></span >
@@ -144,7 +144,7 @@ class Album extends Component {
                     </colgroup>
                     <tbody>
                         {this.state.album.songs.map((song, index) =>
-                            <tr className="song" key={index} onClick={() => this.handleSongClick(song)} onMouseEnter={() => this.onMouseEnter(index + 1)} onMouseLeave={() => this.onMouseLeave(index + 1)} >
+                            <tr className="song" key={index} onClick={() => this.handleSongClick(song)} onMouseEnter={() => this.onMouseEnter(index)} onMouseLeave={() => this.onMouseLeave(index)} >
                                 <td>{this.showIcons(song, index)}</td>
                                 <td>{song.title}</td>
                                 <td>{this.formatTime(song.duration)}</td>
