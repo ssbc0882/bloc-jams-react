@@ -110,18 +110,25 @@ class Album extends Component {
             return < span className="ion-play" ></span >
         } else if (this.state.currentSong === song && this.state.isPlaying) {
             return < span className="ion-pause" ></span >
-        } else if (this.state.currentSong === song && !this.state.isPlaying) {
+        } else if (!this.state.currentSong && !this.state.isPlaying) {
             return < span className="ion-play" ></span >
         } else {
             return index + 1;
         }
     }
 
-    formatTime(seconds) {
-        const s = Math.floor(seconds % 60);
-        const m = Math.floor(seconds / 60);
-        const songDuration = m + ":" + s;
-        return songDuration;
+    formatTime(time) {
+
+        const minutes = Math.floor(time / 60);
+        const seconds = Math.floor(time % 60).toFixed(2).substr(0, 2);
+
+        if (seconds < 10) {
+            return (`${minutes}:0${seconds}`)
+        } else if (seconds) {
+            return (`${minutes}:${seconds}`)
+        } else {
+            return "-:--";
+        }
     }
 
 
@@ -160,5 +167,4 @@ class Album extends Component {
         );
     }
 }
-
 export default Album;
