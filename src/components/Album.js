@@ -113,7 +113,7 @@ class Album extends Component {
         } else if (!this.state.currentSong && !this.state.isPlaying) {
             return < span className="ion-play" ></span >
         } else {
-            return index + 1;
+            return index + 
         }
     }
 
