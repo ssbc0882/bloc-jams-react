@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color:#e2e2ee;
 }
 
 .App-logo {
@@ -7,7 +8,7 @@
   height: 40vmin;
 }
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -16,10 +17,117 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+} */
+.siteName {
+  font-size: 30px;
+  color: red;
+  font-family: cursive;
+  position: relative;
+  bottom: 60px;
+  width: 200px;
+}
+.App-link {
+  color:white;
 }
 
-.App-link {
-  color: #61dafb;
+.bloc-logo-img {
+  height: 200px;
+  position: relative;
+}
+
+/* nav section */
+.Links {
+  text-align: right;
+  position: relative;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-right: 5px;
+  font-size: 25px;  
+}
+
+nav a:hover {
+  color: black;
+}
+
+/* landing section */
+
+.hero-title {
+ 
+  font-size: 60px; 
+ padding-bottom: 20px;
+}
+
+.point {
+  display: inline-block;
+  padding: 15px;
+  width: 20%;
+}
+
+.point-title {
+  font-size: 20px;
+}
+
+.point-description {
+  font-size: 16px;
+  display: inline-block;
+}
+
+.selling-points {
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.icons {
+  font-size: 40px;
+  padding-top: 20px;
+}
+
+/* library section */
+.library {
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 10px;
+
+}
+
+.library-album-info {
+  padding: 15px;
+}
+.album-cover {
+  width: 25%;
+  padding: 10px;
+  display: inline-block;
+  margin: auto;
+}
+
+/* different album section */
+
+#album-cover-art {
+  width: 25%;
+  margin: auto;
+  padding: 10px;
+  border-style: ridge;
+}
+
+#song-list {
+  font-size: 16px;
+  text-align: center;
+  margin: auto;
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+.album {
+  padding-top: 20px;
+}
+
+/* player bar */
+
+.player-bar {
+  padding: 25px;
+  margin:auto;
+  font-size: 16px;
 }
 
 @keyframes App-logo-spin {
